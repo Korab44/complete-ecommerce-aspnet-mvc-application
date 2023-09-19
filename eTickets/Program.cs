@@ -23,6 +23,7 @@ internal class Program
 
         builder.Services.AddScoped<IActorsService, ActorsSevice>();
         builder.Services.AddScoped<IProducersServices, ProducersService>();
+        builder.Services.AddScoped<ICinemasService, CinemasService>();  
 
         builder.Services.AddControllersWithViews();
 

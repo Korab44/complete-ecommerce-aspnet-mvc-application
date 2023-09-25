@@ -9,9 +9,9 @@ namespace eTickets.Controllers
 {
     public class CinemasController : Controller
     {
-        private ICinemasService _service;
+        private ICinemaServis _service;
 
-        public CinemasController(ICinemasService service)
+        public CinemasController(ICinemaServis service)
         {
             _service = service;
         }

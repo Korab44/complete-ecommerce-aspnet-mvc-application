@@ -1,5 +1,5 @@
 ﻿using eTickets.Data;
-using eTickets.Data.Services.Interfaces;
+using eTickets.Data.Services;
 using eTickets.Models;
 using Microsoft.AspNetCore.Mvc;
 

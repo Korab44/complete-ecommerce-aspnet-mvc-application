@@ -1,33 +1,33 @@
 ﻿using eTickets.Data.Base;
 using eTickets.Data.Enums;
+using eTickets.Data.ViewModels;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eTickets.Models
 {
-    public class Movie:IEntityBase
+    public class NewMovieVm
     {
-        [Key]
         public int Id { get; set; }
-        [Display(Name = "Name")]
+        [Display(Name = "Movie name")]
         public string Name { get; set; }
-        [Display(Name = "Description")]
+        [Display(Name = "Movie description")]
         public string Description { get; set; }
-        [Display(Name = "Price")]
+        [Display(Name = "Price in $")]
         public double Price { get; set; }
-        [Display(Name = "Image")]
+        [Display(Name = "Movie poste URL")]
         public string ImageURL{ get; set; }
-        [Display(Name = "Start Date")]
+        [Display(Name = "Start date")]
         public DateTime StartDate { get; set; }
-        [Display(Name = "End Date")]
+        [Display(Name = "End date")]
         public DateTime EndDate { get; set; }
-        [Display(Name = "Movie Category")]
+        [Display(Name = "Select a category")]
         public MovieCategory MovieCategory { get; set;}
-
-        public List<Actor_Movie> Actors_Movies { get; set; }
+        [Display(Name = "Select actor(s)")]
+        public List<int> ActorIds { get; set; }
+        [Display(Name = "Select a cinema")]
         public int CinemaID { get; set; }
-        public Cinema Cinema { get; set; }
+        [Display(Name = "Select a producer")]
         public int ProducerID { get; set; }
-        public Producer Producer { get; set; }
     }
 }

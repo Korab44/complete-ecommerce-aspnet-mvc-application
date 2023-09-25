@@ -1,7 +1,6 @@
 using System;
 using eTickets.Data;
 using eTickets.Data.Services;
-using eTickets.Data.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -23,7 +22,8 @@ internal class Program
 
         builder.Services.AddScoped<IActorsService, ActorsSevice>();
         builder.Services.AddScoped<IProducersServices, ProducersService>();
-        builder.Services.AddScoped<ICinemasService, CinemasService>();  
+        builder.Services.AddScoped<ICinemaServis, CinemasService>();
+        builder.Services.AddScoped<IMoviesService, MoviesServise>();
 
         builder.Services.AddControllersWithViews();
 

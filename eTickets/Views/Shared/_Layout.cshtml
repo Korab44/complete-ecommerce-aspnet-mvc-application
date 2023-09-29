@@ -34,12 +34,29 @@
                                <li><a class="dropdown-item" asp-controller="Actors" asp-action="Index"><i class="bi bi-chat-square-heart-fill"></i> Actors</a></li>
                             </ul>
                             </div>
-                        </li>
+                        
                     </ul>
-                    <form class="form-inline my-2 my-lg-0 float-right d-flex" asp-controller="Movies" asp-action="Filter" style="padding-right: 25px;">
+                    <form class="form-inline my-3 my-lg-0 d-flex float-end" asp-controller="Movies" asp-action="Filter" style="padding-right: 25px;">
                         <input name="searchString" type="text" class="form-control" placeholder="Search for a movie ..." />
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                        <ul class="navbar-nav ">
+                            @await Component.InvokeAsync("ShoppingCartSummary");
+                        </ul>
                     </form>
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown" aria-expanded="False">
+                            <i class="bi bi-person-badge"></i> Hello User
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                            <li>
+                                <a class="dropdown-item" asp-controller="Orders">
+                                    <i class="bi bi-list">Orders</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                
                 </div>
             </div>
         </nav>

@@ -1,8 +1,10 @@
 using System;
 using eTickets.Data;
+using eTickets.Data.Cart;
 using eTickets.Data.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
 
 internal class Program
 {
@@ -24,6 +26,12 @@ internal class Program
         builder.Services.AddScoped<IProducersServices, ProducersService>();
         builder.Services.AddScoped<ICinemaServis, CinemasService>();
         builder.Services.AddScoped<IMoviesService, MoviesServise>();
+        builder.Services.AddScoped<IOrdersService, OrdersService>();
+
+        builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        builder.Services.AddScoped (sc => ShoppingCart.GetShoppingCart(sc));
+
+        builder.Services.AddSession();
 
         builder.Services.AddControllersWithViews();
 
@@ -39,6 +47,7 @@ internal class Program
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
+        app.UseSession();
         app.UseAuthorization();
         
         app.MapControllerRoute(
